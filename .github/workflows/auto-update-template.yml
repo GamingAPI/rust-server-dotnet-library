@@ -92,7 +92,7 @@ jobs:
           template: '@asyncapi/dotnet-nats-template'
           filepath: ./definitions/rust_server.json
           output: ./
-          parameters: version=$library_last_version
+          parameters: version="${library_last_version}"
       - name: Write new config file to ensure we keep the new state for next time
         if: ${{env.major_version_change == 'true' || env.minor_version_change == 'true' || env.patch_version_change == 'true'}}
         run: |
