@@ -34,7 +34,7 @@ jobs:
           repository: tyleradams/json-toolkit
           path: "./tooling"
       - name: Install and build utility tools
-        run: cd ./tooling && make && make test && sudo make install && cd ..
+        run: cd ./tooling && make && sudo make install && cd ..
       - uses: actions/checkout@v2
       # Find all relevant semver versions needed to figure out how to update the client
       - name: Fetch the last AsyncAPI document version that generated the client
