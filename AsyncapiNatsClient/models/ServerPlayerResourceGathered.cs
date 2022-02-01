@@ -1,10 +1,10 @@
-
-using System.Collections.Generic;
+namespace Asyncapi.Nats.Client.Models
+{
+  using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using System.Linq;
-namespace Asyncapi.Nats.Client.Models {
   [JsonConverter(typeof(ServerPlayerResourceGatheredConverter))]
 public class ServerPlayerResourceGathered {
   private string gatheredTimestamp;
@@ -219,4 +219,3 @@ internal class ServerPlayerResourceGatheredConverter : JsonConverter<ServerPlaye
 }
 
 }
-    
