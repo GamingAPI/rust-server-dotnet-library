@@ -1,10 +1,10 @@
-
-using System.Collections.Generic;
+namespace Asyncapi.Nats.Client.Models
+{
+  using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using System.Linq;
-namespace Asyncapi.Nats.Client.Models {
   [JsonConverter(typeof(PlayerPositionConverter))]
 public class PlayerPosition {
   private float? x;
@@ -39,12 +39,12 @@ public class PlayerPosition {
 
 internal class PlayerPositionConverter : JsonConverter<PlayerPosition>
 {
-  public override bool CanConvert(Type objectType)
+  public override bool CanConvert(System.Type objectType)
   {
     // this converter can be applied to any type
     return true;
   }
-  public override PlayerPosition Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+  public override PlayerPosition Read(ref Utf8JsonReader reader, System.Type typeToConvert, JsonSerializerOptions options)
   {
     if (reader.TokenType != JsonTokenType.StartObject)
     {
@@ -147,4 +147,3 @@ internal class PlayerPositionConverter : JsonConverter<PlayerPosition>
 }
 
 }
-    
