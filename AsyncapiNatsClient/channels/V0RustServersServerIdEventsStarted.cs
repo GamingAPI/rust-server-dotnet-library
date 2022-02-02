@@ -20,7 +20,7 @@ String server_id
     EventHandler<EncodedMessageEventArgs> handler = (sender, args) =>
     {
       logger.Debug("Got message for channel subscription: " + $"v0.rust.servers.{server_id}.events.started");
-      var deserializedMessage = JsonDeserializerSupport(logger, (byte[])args.ReceivedObject);
+      
 
       var unmodifiedChannel = "v0.rust.servers.{server_id}.events.started";
   var channel = args.Subject;
@@ -33,8 +33,7 @@ serverIdSplit[1]
 var serverIdEnd = channel.IndexOf(splits[1]);
 var serverIdParam = $"{channel.Substring(0, serverIdEnd)}";
       
-      onRequest(null,
-serverIdParam);
+      onRequest(serverIdParam);
     };
     logger.Debug("Subscribing to: " + $"v0.rust.servers.{server_id}.events.started");
     return connection.SubscribeAsync($"v0.rust.servers.{server_id}.events.started",handler);

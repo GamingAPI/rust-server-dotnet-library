@@ -1,10 +1,10 @@
-
-using System.Collections.Generic;
+namespace Asyncapi.Nats.Client.Models
+{
+  using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using System.Linq;
-namespace Asyncapi.Nats.Client.Models {
   [JsonConverter(typeof(ServerPlayerConnectedConverter))]
 public class ServerPlayerConnected {
   private string connectedTimestamp;
@@ -129,4 +129,3 @@ internal class ServerPlayerConnectedConverter : JsonConverter<ServerPlayerConnec
 }
 
 }
-    
