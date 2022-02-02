@@ -19,7 +19,7 @@ jobs:
           dotnet-version: '3.1.x' # SDK Version to use.
           source-url: https://nuget.pkg.github.com/gaming_event_api/index.json
         env:
-          NUGET_AUTH_TOKEN: ${{secrets.NUGET_TOKEN}}
+          NUGET_AUTH_TOKEN: ${{secrets.GH_TOKEN}}
       - name: Install dependencies
         run: dotnet restore
       - run: dotnet build --configuration Release AsyncapiNatsClient
@@ -27,3 +27,4 @@ jobs:
         run: dotnet pack --configuration Release AsyncapiNatsClient
       - name: Publish the package to GPR
         run: dotnet nuget push AsyncapiNatsClient/bin/Release/*.nupkg
+        
