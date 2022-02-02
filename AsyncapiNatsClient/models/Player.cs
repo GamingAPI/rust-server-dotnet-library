@@ -1,10 +1,10 @@
-
-using System.Collections.Generic;
+namespace Asyncapi.Nats.Client.Models
+{
+  using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using System.Linq;
-namespace Asyncapi.Nats.Client.Models {
   [JsonConverter(typeof(PlayerConverter))]
 public class Player {
   private string id;
@@ -39,12 +39,12 @@ public class Player {
 
 internal class PlayerConverter : JsonConverter<Player>
 {
-  public override bool CanConvert(Type objectType)
+  public override bool CanConvert(System.Type objectType)
   {
     // this converter can be applied to any type
     return true;
   }
-  public override Player Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+  public override Player Read(ref Utf8JsonReader reader, System.Type typeToConvert, JsonSerializerOptions options)
   {
     if (reader.TokenType != JsonTokenType.StartObject)
     {
@@ -147,4 +147,3 @@ internal class PlayerConverter : JsonConverter<Player>
 }
 
 }
-    
