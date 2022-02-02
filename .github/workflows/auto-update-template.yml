@@ -115,7 +115,7 @@ jobs:
           commit-message: ${{env.commit_message}}. Library require a new major version change.
           body: ${{env.commit_message}}. Library require a new major version change.
       - name: Create pull request for minor version if needed
-        if: ${{env.minor_version_change == 'true'}}
+        if: ${{env.major_version_change == 'false' && env.minor_version_change == 'true'}}
         uses: peter-evans/create-pull-request@v3
         with:
           title: "feat: minor version change"
@@ -125,7 +125,7 @@ jobs:
           commit-message: ${{env.commit_message}}. Library require a new minor version change.
           body: ${{env.commit_message}}. Library require a new minor version change.
       - name: Create pull request for patch version if needed
-        if: ${{env.patch_version_change == 'true'}}
+        if: ${{env.major_version_change == 'false' && env.minor_version_change == 'false' && env.patch_version_change == 'true'}}
         uses: peter-evans/create-pull-request@v3
         with:
           title: "fix: patch version change"
